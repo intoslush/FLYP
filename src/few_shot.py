@@ -33,7 +33,7 @@ def main(args):
     val_accs = []
     test_accs = []
 
-    for run_iter in range(50):
+    for run_iter in range(3):
         logger.info(
             f'------------------ Running iteration {run_iter} -------------------'
         )

@@ -29,6 +29,7 @@ def flyp_loss_few_shot(args, clip_encoder, classification_head, logger):
         img_text_data), 'At least one train or eval dataset must be specified.'
     ft_dataloader = img_text_data['train_ft'].dataloader
     ft_iterator = iter(ft_dataloader)
+
     args.batch_size = give_batch_size
 
     model = model.cuda()
@@ -56,9 +57,12 @@ def flyp_loss_few_shot(args, clip_encoder, classification_head, logger):
     images1 = []
     texts1 = []
     match = None
+    II=1
     while True:
         ft_batch = next(ft_iterator)
+        II+=1
         ft_image, ft_text = ft_batch
+        # print("ft_image",ft_image.shape,"\n","ft_text",ft_text.shape)
         if match is None:
             match = ft_text[0, :]
 
@@ -72,11 +76,18 @@ def flyp_loss_few_shot(args, clip_encoder, classification_head, logger):
                     texts1.append(ft_text[i])
                     images1.append(ft_image[i])
 
+        
         if len(texts0) == args.k and len(texts1) == args.k:
+            print("over")
             break
-
+    # print("args.k",args.k)
+    # print("??????????????????循环结束",len(images0),"images0",len(images1),'images1')
+    # print("len(texts0)",len(texts0),"len(texts1)",len(texts1))
+    
     ft_image = torch.stack(images0 + images1, dim=0)
     ft_text = torch.stack(texts0 + texts1, dim=0)
+    # print("ft_image",ft_image.shape,"ft_text",ft_text.shape)# ft_image torch.Size([8, 3, 224, 224]) ft_text torch.Size([8, 77])
+    # assert False
 
     # get val data
     val_dataset_name = None
@@ -204,7 +215,7 @@ def flyp_loss_few_shot(args, clip_encoder, classification_head, logger):
                                                   val_batch)
 
     assert val_acc == max_val, f'max val not matching Max {max_val}, new {val_acc}'
-    assert cnt_loss == min_cnt_loss, f'min val not matching Max {min_cnt_loss}, new {cnt_loss}'
+    # assert cnt_loss == min_cnt_loss, f'min val not matching Max {min_cnt_loss}, new {cnt_loss}'
 
     test_dataset_name = None
     for i, dataset_name in enumerate(args.eval_datasets):

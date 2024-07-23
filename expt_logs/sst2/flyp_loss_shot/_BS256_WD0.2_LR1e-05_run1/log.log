@@ -1,0 +1,40 @@
+2024-07-23 12:33:13,460 Namespace(data_location='./datasets/data/', eval_datasets=['Caltech101Val', 'Caltech101Test'], train_dataset='Caltech101Val', template='sst2_template', classnames='openai', alpha=[0.5], exp_name='sst2/flyp_loss_shot', results_db=None, model='ViT-B/16', batch_size=256, lr=1e-05, wd=0.2, ls=0.0, warmup_length=0, num_classes=1000, epochs=2, load=None, save='./checkpoints/sst2/flyp_loss_shot/_BS256_WD0.2_LR1e-05_run1', freeze_encoder=False, cache_dir=None, fisher=None, fisher_floor=1e-08, ft_data='./datasets/csv/caltech101/train.csv', ce_ablation=None, dataset_type='auto', train_num_samples=None, k=4, seed=0, workers=16, csv_separator='\t', csv_img_key='filepath', csv_caption_key='title', clip_load=None, wise_save=None, run=1, get_labeled_csv=False, min_lr=0.0, device='cuda')
+2024-07-23 12:33:13,460 ------------------ Running iteration 0 -------------------
+2024-07-23 12:33:26,629 Epoch -1 results 0.875
+2024-07-23 12:33:28,888 Epoch 0 results 1.0
+2024-07-23 12:33:30,867 Epoch 1 results 1.0
+2024-07-23 12:34:02,410 Val 1.0 0.8281
+2024-07-23 12:34:02,411 ------------------ Running iteration 1 -------------------
+2024-07-23 12:34:19,209 Epoch -1 results 0.875
+2024-07-23 12:34:21,785 Epoch 0 results 0.875
+2024-07-23 12:34:23,847 Epoch 1 results 0.875
+2024-07-23 12:34:55,614 Val 0.875 0.8352
+2024-07-23 12:34:55,614 ------------------ Running iteration 2 -------------------
+2024-07-23 12:35:10,749 Epoch -1 results 0.75
+2024-07-23 12:35:13,491 Epoch 0 results 0.75
+2024-07-23 12:35:14,906 Epoch 1 results 0.75
+2024-07-23 12:35:45,981 Val 0.75 0.8304
+2024-07-23 12:35:45,982 ------------------ Running iteration 3 -------------------
+2024-07-23 12:35:57,470 Epoch -1 results 1.0
+2024-07-23 12:36:00,118 Epoch 0 results 1.0
+2024-07-23 12:36:02,174 Epoch 1 results 1.0
+2024-07-23 12:36:34,541 Val 1.0 0.8336
+2024-07-23 12:36:34,542 ------------------ Running iteration 4 -------------------
+2024-07-23 12:37:01,856 Epoch -1 results 0.75
+2024-07-23 12:37:04,490 Epoch 0 results 0.75
+2024-07-23 12:37:06,658 Epoch 1 results 0.75
+2024-07-23 12:37:39,190 Val 0.75 0.8198
+2024-07-23 12:37:39,191 ------------------ Running iteration 5 -------------------
+2024-07-23 12:37:46,446 Epoch -1 results 0.625
+2024-07-23 12:37:49,208 Epoch 0 results 0.5
+2024-07-23 12:37:51,345 Epoch 1 results 0.375
+2024-07-23 12:38:24,108 Val 0.375 0.8446
+2024-07-23 12:38:24,109 ------------------ Running iteration 6 -------------------
+2024-07-23 12:38:38,580 Epoch -1 results 0.875
+2024-07-23 12:38:41,227 Epoch 0 results 0.875
+2024-07-23 12:38:43,364 Epoch 1 results 1.0
+2024-07-23 12:39:16,539 Val 1.0 0.8238
+2024-07-23 12:39:16,539 ------------------ Running iteration 7 -------------------
+2024-07-23 12:39:23,069 Epoch -1 results 0.375
+2024-07-23 12:39:25,715 Epoch 0 results 0.375
+2024-07-23 12:39:27,132 Epoch 1 results 0.375

@@ -14,7 +14,7 @@ class Caltech101:
                  preprocess,
                  location=os.path.expanduser('~/data'),
                  batch_size=128,
-                 num_workers=16,
+                 num_workers=4,
                  subset='test',
                  classnames=None,
                  **kwargs):

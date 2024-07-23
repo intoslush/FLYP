@@ -48,9 +48,10 @@ templates = [
 def main(args):
 
     assert len(classes) == 101, 'number of classes are less'
-    print(args.data_dir)
+    
     classes_in_dir = sorted(next(os.walk(args.data_dir))[1])
-
+    print(args.data_dir,len(classes_in_dir),len(classes))
+    
     assert len(classes_in_dir) == len(classes), 'number of classes mismatch'
 
     with open(args.save_file, 'w') as f:

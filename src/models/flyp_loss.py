@@ -72,6 +72,7 @@ def flyp_loss(args, clip_encoder, classification_head, logger):
                           args.epochs * num_batches, args.min_lr)
 
     stats = []
+    # input("********check1**********")
     for epoch in range(0, args.epochs):
         print("Epoch : ", epoch)
         epoch_stats = {}
@@ -82,6 +83,7 @@ def flyp_loss(args, clip_encoder, classification_head, logger):
         classification_head.train()
 
         for i in range(num_batches):
+            # input("********check2**********")
             start_time = time.time()
             step = i + epoch * num_batches
             if epoch != -1:
@@ -97,9 +99,10 @@ def flyp_loss(args, clip_encoder, classification_head, logger):
 
             ft_image, ft_text = ft_batch
             ft_image, ft_text = ft_image.cuda(), ft_text.cuda()
-
+            input("********check3**********")
             ft_image_features, ft_text_features, logit_scale2 = model(
                 ft_image, ft_text)
+            input("********check4**********")
             ft_clip_loss = clip_loss_fn(ft_image_features,
                                         ft_text_features,
                                         logit_scale2[0])
