@@ -5,7 +5,7 @@
 
 # 运行数据创建脚本
 # python datacreation_scripts/caltech101.py
-
+conda activate flyp
 export PYTHONPATH="$PYTHONPATH:$PWD"
 # 运行主程序
 # python src/main.py \

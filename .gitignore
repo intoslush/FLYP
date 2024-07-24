@@ -12,3 +12,5 @@ model_checkpoints/
 data/result.txt
 data/result.zip
 model_checkpoint/
+checkpoints/
+datasets/

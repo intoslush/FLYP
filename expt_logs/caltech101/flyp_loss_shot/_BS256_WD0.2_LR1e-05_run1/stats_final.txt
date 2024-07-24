@@ -1,4 +1,0 @@
-Val: 0.6667
-Test: 0.8341
-ValDev: 0.1179
-TestDev: 0.0042

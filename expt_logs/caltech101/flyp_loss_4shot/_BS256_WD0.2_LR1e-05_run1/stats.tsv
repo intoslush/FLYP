@@ -1,0 +1,3 @@
+	epoch	Caltech101Val Accuracy	Caltech101Test Accuracy	Avg OOD Acc	Avg ID FLYP Loss
+0	0	0.9073	0.9076	0.9074	2.0062
+1	1	0.9162	0.9245	0.9204	1.761
