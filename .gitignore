@@ -1,6 +1,7 @@
 # Ignore the img directory
 img/
-data/
+data/caltech-101
+data/compitition
 # Ignore the data directory
 data/TestSetA
 data/TrainSet
@@ -13,4 +14,5 @@ data/result.txt
 data/result.zip
 model_checkpoint/
 checkpoints/
-datasets/
+datasets/csv
+datasets/data

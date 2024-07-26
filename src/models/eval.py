@@ -56,6 +56,10 @@ def eval_single_dataset(image_classifier, dataset, args, classification_head):
                 correct += acc1
                 n += num_total
             else:
+                # print("!!!!!!!!!")
+                # print("y",y[0],'\n',"y.shape",y.shape)
+                # print("X",'x','\n',"x.shape",x.shape)
+                # assert False 
                 correct += pred.eq(y.view_as(pred)).sum().item()
                 n += y.size(0)
 

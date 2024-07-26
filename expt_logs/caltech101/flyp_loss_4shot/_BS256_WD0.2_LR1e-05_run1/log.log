@@ -1,15 +1,4 @@
-2024-07-23 18:44:04,163 Namespace(data_location='./datasets/data/', eval_datasets=['Caltech101Val', 'Caltech101Test'], train_dataset='Caltech101Val', template='caltech101_template', classnames='openai', alpha=[0.5], exp_name='caltech101/flyp_loss_4shot', results_db=None, model='ViT-B/32', batch_size=256, lr=1e-05, wd=0.2, ls=0.0, warmup_length=0, num_classes=1000, epochs=2, load=None, save='./checkpoints/caltech101/flyp_loss_4shot/_BS256_WD0.2_LR1e-05_run1', freeze_encoder=False, cache_dir=None, fisher=None, fisher_floor=1e-08, ft_data='./datasets/csv/caltech101/train.csv', ce_ablation=None, dataset_type='auto', train_num_samples=None, k=4, seed=0, workers=4, csv_separator='\t', csv_img_key='filepath', csv_caption_key='title', clip_load=None, wise_save=None, run=1, get_labeled_csv=False, min_lr=0.0, device='cuda')
-2024-07-23 18:44:04,163 Fine-tuning Using FLYP Loss
-2024-07-23 18:44:04,435 Using devices[0, 1]
-2024-07-23 18:44:12,100 Train Epoch: 0 [0% 0/14]	ID FLYP Loss: 2.8212
-2024-07-23 18:44:47,959 Caltech101Val Top-1 accuracy: 0.9073
-2024-07-23 18:44:53,549 Caltech101Test Top-1 accuracy: 0.9076
-2024-07-23 18:44:53,550 Saving model to./checkpoints/caltech101/flyp_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_0.pt
-2024-07-23 18:44:56,889 Avg OOD Acc : 0.9074
-2024-07-23 18:44:56,889 Avg ID FLYP Loss : 2.0062
-2024-07-23 18:44:59,076 Train Epoch: 1 [0% 0/14]	ID FLYP Loss: 1.7825
-2024-07-23 18:45:35,605 Caltech101Val Top-1 accuracy: 0.9162
-2024-07-23 18:45:41,151 Caltech101Test Top-1 accuracy: 0.9245
-2024-07-23 18:45:41,152 Saving model to./checkpoints/caltech101/flyp_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_1.pt
-2024-07-23 18:45:44,238 Avg OOD Acc : 0.9204
-2024-07-23 18:45:44,239 Avg ID FLYP Loss : 1.7610
+2024-07-25 19:46:07,533 Namespace(data_location='./datasets/data/', eval_datasets=['Caltech101Val', 'Caltech101Test'], train_dataset='Caltech101Val', template='caltech101_template', classnames='openai', alpha=[0.5], exp_name='caltech101/flyp_loss_4shot', results_db=None, model='ViT-B/32', batch_size=256, lr=1e-05, wd=0.2, ls=0.0, warmup_length=0, num_classes=1000, epochs=2, load=None, save='./checkpoints/caltech101/flyp_loss_4shot/_BS256_WD0.2_LR1e-05_run1', freeze_encoder=False, cache_dir=None, fisher=None, fisher_floor=1e-08, ft_data='./datasets/csv/caltech101/train.csv', ce_ablation=None, dataset_type='auto', train_num_samples=None, k=4, seed=0, workers=4, csv_separator='\t', csv_img_key='filepath', csv_caption_key='title', clip_load=None, wise_save=None, run=1, get_labeled_csv=False, min_lr=0.0, device='cuda')
+2024-07-25 19:46:07,534 Fine-tuning Using FLYP Loss
+2024-07-25 19:46:07,830 Using devices[0, 1]
+2024-07-25 19:46:15,270 Train Epoch: 0 [0% 0/14]	ID FLYP Loss: 2.7320

@@ -45,15 +45,26 @@ def get_zeroshot_classifier(args, clip_model):
             texts = []
             for t in template:
                 texts.append(t(classname))
+            # print("print(texts[0],len(texts)):",texts[0],len(texts))
             texts = clip.tokenize(texts).to(device)  # tokenize
+
             embeddings = clip_model.encode_text(
                 texts)  # embed with text encoder
+            # print("1.embeddings.shape",embeddings.shape)
             embeddings /= embeddings.norm(dim=-1, keepdim=True)
-
+            # print("2.embeddings.shape",embeddings.shape)
             embeddings = embeddings.mean(dim=0, keepdim=True)
+            # print("3.embeddings.shape",embeddings.shape)
             embeddings /= embeddings.norm()
+            # print("4.embeddings.shape",embeddings.shape)
 
             zeroshot_weights.append(embeddings)
+            # assert False
+            # print(texts[0],len(texts)): a photo of a off-center face. 34
+            # 1.embeddings.shape torch.Size([34, 512])
+            # 2.embeddings.shape torch.Size([34, 512])
+            # 3.embeddings.shape torch.Size([1, 512])
+            # 4.embeddings.shape torch.Size([1, 512])
 
         zeroshot_weights = torch.stack(zeroshot_weights, dim=0).to(device)
         zeroshot_weights = torch.transpose(zeroshot_weights, 0, 2)

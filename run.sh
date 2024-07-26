@@ -7,23 +7,7 @@
 # python datacreation_scripts/caltech101.py
 conda activate flyp
 export PYTHONPATH="$PYTHONPATH:$PWD"
-# 运行主程序
-# python src/main.py \
-#   --train-dataset=Caltech101Val \
-#   --epochs=2 \
-#   --lr=1e-5 \
-#   --wd=0.0 \
-#   --batch-size=256 \
-#   --model=ViT-B/16 \
-#   --warmup_length=500 \
-#   --eval-datasets=Caltech101Val,Caltech101Test \
-#   --template=caltech101_template \
-#   --save=./checkpoints/ \
-#   --data-location=./datasets/data/ \
-#   --ft_data="./datasets/csv/caltech101/train.csv" \
-#   --csv-img-key=filepath \
-#   --csv-caption-key=title \
-#   --exp_name=caltech101/flyp_loss
+
 
 python src/main.py \
   --train-dataset=Caltech101Val \
