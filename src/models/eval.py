@@ -7,7 +7,7 @@ from src.models import utils
 from src.datasets.common import get_dataloader, maybe_dictionarize
 import src.datasets as datasets
 import torch.nn.functional as F
-
+import zipfile
 
 def eval_single_dataset(image_classifier, dataset, args, classification_head):
 
@@ -32,6 +32,10 @@ def eval_single_dataset(image_classifier, dataset, args, classification_head):
 
     with torch.no_grad():
         top1, correct, n = 0., 0., 0.
+        if args.current_epoch==-1:
+            save_path='./result.txt'
+            count=0
+            save_file = open(save_path, 'w')
         for i, data in batched_data:
 
             data = maybe_dictionarize(data)
@@ -42,7 +46,27 @@ def eval_single_dataset(image_classifier, dataset, args, classification_head):
                 image_paths = data['image_paths']
 
             logits = utils.get_logits(x, model, classification_head)
-
+            # print('logits.shape',logits.shape)
+            # print("logits[0].shape",logits[0].shape)
+            # print("logits[0].topk(5)[1]",logits[0].topk(5)[1])
+            # dataset.convert_id_to_name(logits[0].topk(5)[1].tolist())
+            # assert False
+            if args.current_epoch==-1:# 比赛测评写入文件
+                
+                for i in range(len(y.tolist())):
+                    temp="image_"+str(int(y[i]))
+                    name=temp+".jpg"
+                    top_5=dataset.convert_id_to_name(logits[i].topk(5)[1].tolist())#一个图片的top5
+                    # print(name)
+                    if not os.path.exists("datasets/data/compitition/TestSetA/"+name):
+                        name=temp+".jpeg"
+                    if not os.path.exists("datasets/data/compitition/TestSetA/"+name):
+                        name=temp+".png"
+                        print(name)
+                        print("??????")
+                    save_file.write(name + ' ' +' '.join([str(p) for p in top_5]) + '\n')
+                    count+=1
+                continue
             projection_fn = getattr(dataset, 'project_logits', None)
             if projection_fn is not None:
                 logits = projection_fn(logits, device)
@@ -69,7 +93,23 @@ def eval_single_dataset(image_classifier, dataset, args, classification_head):
                 metadata = data[
                     'metadata'] if 'metadata' in data else image_paths
                 all_metadata.extend(metadata)
+        
 
+        if args.current_epoch==-1:# 比赛测评写入文件
+
+            print("写入完成,共计",count)
+            save_file.close()
+
+
+            # 压缩结果文件
+            zip_file_path = './result.zip'
+            with zipfile.ZipFile(zip_file_path, 'w') as zipf:
+                zipf.write(save_path, os.path.basename(save_path))
+
+            # 删除原文件
+            # os.remove(save_path)
+            print(f"{save_path} 已压缩为 {zip_file_path} 并删除原文件。")
+            return
         top1 = correct / n
 
         if hasattr(dataset, 'post_loop_metrics'):
@@ -164,28 +204,37 @@ def evaluate(image_classifier,
     if args.eval_datasets is None:
         return
     info = vars(args)
-    for i, dataset_name in enumerate(args.eval_datasets):
-        print('Evaluating on', dataset_name)
-        dataset_class = getattr(datasets, dataset_name)
+    if args.current_epoch==-1:
+        #用于 比赛提交的分支,用epoch=-1来区分
+        dataset_class = getattr(datasets,"CompititionUpload")
         dataset = dataset_class(image_classifier.module.val_preprocess,
-                                location=args.data_location,
-                                batch_size=args.batch_size)
+                                    location=args.data_location,
+                                    batch_size=args.batch_size)
+        eval_single_dataset(image_classifier, dataset, args, classification_head)
+        return
+    else:
+        for i, dataset_name in enumerate(args.eval_datasets):
+            print('Evaluating on', dataset_name)
+            dataset_class = getattr(datasets, dataset_name)
+            dataset = dataset_class(image_classifier.module.val_preprocess,
+                                    location=args.data_location,
+                                    batch_size=args.batch_size)
 
-        results = eval_single_dataset(image_classifier, dataset, args,
-                                      classification_head)
+            results = eval_single_dataset(image_classifier, dataset, args,
+                                        classification_head)
 
-        if 'top1' in results:
-            print(f"{dataset_name} Top-1 accuracy: {results['top1']:.4f}")
-            if logger != None:
-                logger.info(
-                    f"{dataset_name} Top-1 accuracy: {results['top1']:.4f}")
-            train_stats[dataset_name + " Accuracy"] = round(results['top1'], 4)
-
-        for key, val in results.items():
-            if 'worst' in key or 'f1' in key.lower() or 'pm0' in key:
-                print(f"{dataset_name} {key}: {val:.4f}")
+            if 'top1' in results:
+                print(f"{dataset_name} Top-1 accuracy: {results['top1']:.4f}")
                 if logger != None:
-                    logger.info(f"{dataset_name} {key}: {val:.4f}")
-                train_stats[dataset_name + key] = round(val, 4)
+                    logger.info(
+                        f"{dataset_name} Top-1 accuracy: {results['top1']:.4f}")
+                train_stats[dataset_name + " Accuracy"] = round(results['top1'], 4)
 
-    return info
+            for key, val in results.items():
+                if 'worst' in key or 'f1' in key.lower() or 'pm0' in key:
+                    print(f"{dataset_name} {key}: {val:.4f}")
+                    if logger != None:
+                        logger.info(f"{dataset_name} {key}: {val:.4f}")
+                    train_stats[dataset_name + key] = round(val, 4)
+
+        return info

@@ -12,3 +12,4 @@ from .sun397_template import sun397_template
 from .patchcamelyon_template import patchcamelyon_template
 from .sst2_template import sst2_template
 from .hatefulmemes_template import hatefulmemes_template
+from .compitition_template import compitition_template

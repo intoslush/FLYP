@@ -471,6 +471,7 @@ def get_csv_dataset(args, preprocess_fn, is_train, epoch=0):
                          sep=args.csv_separator,
                          label_key=label_key)
     num_samples = len(dataset)
+    print("input_filename",input_filename)
     # sampler = DistributedSampler(dataset) if args.distributed and is_train else None
     sampler = None
     shuffle = is_train and sampler is None

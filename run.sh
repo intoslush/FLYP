@@ -9,20 +9,38 @@ conda activate flyp
 export PYTHONPATH="$PYTHONPATH:$PWD"
 
 
+# python src/main.py \
+#   --train-dataset=Caltech101Val \
+#   --epochs=2 \
+#   --lr=1e-5 \
+#   --wd=0.2 \
+#   --batch-size=256 \
+#   --model=ViT-B/32 \
+#   --warmup_length 0 \
+#   --eval-datasets=Caltech101Val,Caltech101Test \
+#   --template=caltech101_template \
+#   --save=./checkpoints/ \
+#   --data-location=./datasets/data/ \
+#   --ft_data="./datasets/csv/caltech101/train.csv" \
+#   --csv-img-key=filepath \
+#   --csv-caption-key=title \
+#   --exp_name=caltech101/"flyp_loss_4shot" \
+  # --k=4
+
 python src/main.py \
-  --train-dataset=Caltech101Val \
-  --epochs=2 \
+  --train-dataset=CompititionVal \
+  --epochs=25 \
   --lr=1e-5 \
   --wd=0.2 \
   --batch-size=256 \
   --model=ViT-B/32 \
   --warmup_length 0 \
-  --eval-datasets=Caltech101Val,Caltech101Test \
-  --template=caltech101_template \
+  --eval-datasets=CompititionVal,CompititionTest \
+  --template=compitition_template \
   --save=./checkpoints/ \
   --data-location=./datasets/data/ \
-  --ft_data="./datasets/csv/caltech101/train.csv" \
+  --ft_data="./datasets/csv/compitition/train.csv" \
   --csv-img-key=filepath \
   --csv-caption-key=title \
-  --exp_name=caltech101/"flyp_loss_4shot" \
-  --k=4
+  --exp_name=compition/"compi_loss_4shot" \
+ 

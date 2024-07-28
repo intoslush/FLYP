@@ -73,6 +73,8 @@ def flyp_loss(args, clip_encoder, classification_head, logger):
 
     stats = []
     # input("********check1**********")
+    best_acc=0#找最好的模型然后用来跑测试
+    best_path=""
     for epoch in range(0, args.epochs):
         print("Epoch : ", epoch)
         epoch_stats = {}
@@ -135,8 +137,8 @@ def flyp_loss(args, clip_encoder, classification_head, logger):
             model_path = os.path.join(args.save, f'checkpoint_{epoch}.pt')
             logger.info('Saving model to' + str(model_path))
             model.module.save(model_path)
-            optim_path = os.path.join(args.save, f'optim_{epoch}.pt')
-            torch.save(optimizer.state_dict(), optim_path)
+            # optim_path = os.path.join(args.save, f'optim_{epoch}.pt')
+            # torch.save(optimizer.state_dict(), optim_path)
 
         ood_acc = 0
         num_datasets = 0
@@ -157,11 +159,22 @@ def flyp_loss(args, clip_encoder, classification_head, logger):
         logger.info(f"Avg ID FLYP Loss : {id_flyp_loss_avg:.4f}")
         epoch_stats['Avg ID FLYP Loss'] = round(id_flyp_loss_avg, 4)
         stats.append(epoch_stats)
+        
         stats_df = pd.DataFrame(stats)
         log_dir = "expt_logs/" + args.exp_name + "/" + "_BS" + str(
             args.batch_size) + "_WD" + str(args.wd) + "_LR" + str(args.lr) + "_run" + str(args.run)
         os.makedirs(log_dir, exist_ok=True)
+        if epoch_stats['CompititionVal Accuracy']+epoch_stats['CompititionTest Accuracy']>best_acc:
+            best_acc=epoch_stats['CompititionVal Accuracy']+epoch_stats['CompititionTest Accuracy']
+            best_path=model_path
         stats_df.to_csv(log_dir + '/stats.tsv', sep='\t')
+
+    model.module.load(model_path)
+    print("best_path",best_path,"best_acc",best_acc/2)
+    classification_head_new = get_zeroshot_classifier(args, model.module.model)
+    classification_head_new = classification_head_new.cuda()
+    args.current_epoch=-1
+    evaluate(model, args, classification_head_new,epoch_stats, logger)
 
     if args.save is not None:
         return model_path

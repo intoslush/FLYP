@@ -1,0 +1,153 @@
+2024-07-28 10:05:18,848 Namespace(data_location='./datasets/data/', eval_datasets=['CompititionVal', 'CompititionTest'], train_dataset='CompititionVal', template='compitition_template', classnames='openai', alpha=[0.5], exp_name='compition/compi_loss_4shot', results_db=None, model='ViT-B/32', batch_size=256, lr=1e-05, wd=0.2, ls=0.0, warmup_length=0, num_classes=1000, epochs=25, load=None, save='./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1', freeze_encoder=False, cache_dir=None, fisher=None, fisher_floor=1e-08, ft_data='./datasets/csv/compitition/train.csv', ce_ablation=None, dataset_type='auto', train_num_samples=None, k=None, seed=0, workers=4, csv_separator='\t', csv_img_key='filepath', csv_caption_key='title', clip_load=None, wise_save=None, run=1, get_labeled_csv=False, min_lr=0.0, device='cuda')
+2024-07-28 10:05:18,848 Fine-tuning Using FLYP Loss
+2024-07-28 10:05:19,119 Using devices[0, 1]
+2024-07-28 10:05:27,123 Train Epoch: 0 [0% 0/6]	ID FLYP Loss: 2.4097
+2024-07-28 10:06:12,155 CompititionVal Top-1 accuracy: 0.7162
+2024-07-28 10:06:23,627 CompititionTest Top-1 accuracy: 0.7224
+2024-07-28 10:06:23,628 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_0.pt
+2024-07-28 10:06:28,611 Avg OOD Acc : 0.7193
+2024-07-28 10:06:28,611 Avg ID FLYP Loss : 1.5711
+2024-07-28 10:06:30,734 Train Epoch: 1 [0% 0/6]	ID FLYP Loss: 1.3122
+2024-07-28 10:07:16,561 CompititionVal Top-1 accuracy: 0.7114
+2024-07-28 10:07:28,152 CompititionTest Top-1 accuracy: 0.7097
+2024-07-28 10:07:28,153 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_1.pt
+2024-07-28 10:07:33,156 Avg OOD Acc : 0.7106
+2024-07-28 10:07:33,156 Avg ID FLYP Loss : 1.2380
+2024-07-28 10:07:35,314 Train Epoch: 2 [0% 0/6]	ID FLYP Loss: 1.1307
+2024-07-28 10:08:21,614 CompititionVal Top-1 accuracy: 0.6936
+2024-07-28 10:08:33,246 CompititionTest Top-1 accuracy: 0.6932
+2024-07-28 10:08:33,247 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_2.pt
+2024-07-28 10:08:35,272 Avg OOD Acc : 0.6934
+2024-07-28 10:08:35,273 Avg ID FLYP Loss : 1.0955
+2024-07-28 10:08:37,433 Train Epoch: 3 [0% 0/6]	ID FLYP Loss: 1.0225
+2024-07-28 10:09:24,413 CompititionVal Top-1 accuracy: 0.7126
+2024-07-28 10:09:36,056 CompititionTest Top-1 accuracy: 0.7064
+2024-07-28 10:09:36,057 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_3.pt
+2024-07-28 10:09:37,989 Avg OOD Acc : 0.7095
+2024-07-28 10:09:37,989 Avg ID FLYP Loss : 1.0852
+2024-07-28 10:09:40,148 Train Epoch: 4 [0% 0/6]	ID FLYP Loss: 1.0032
+2024-07-28 10:10:27,278 CompititionVal Top-1 accuracy: 0.7178
+2024-07-28 10:10:38,940 CompititionTest Top-1 accuracy: 0.7111
+2024-07-28 10:10:38,942 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_4.pt
+2024-07-28 10:10:40,857 Avg OOD Acc : 0.7145
+2024-07-28 10:10:40,857 Avg ID FLYP Loss : 1.0449
+2024-07-28 10:10:43,012 Train Epoch: 5 [0% 0/6]	ID FLYP Loss: 1.0564
+2024-07-28 10:11:30,408 CompititionVal Top-1 accuracy: 0.7247
+2024-07-28 10:11:42,060 CompititionTest Top-1 accuracy: 0.7123
+2024-07-28 10:11:42,061 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_5.pt
+2024-07-28 10:11:43,983 Avg OOD Acc : 0.7185
+2024-07-28 10:11:43,983 Avg ID FLYP Loss : 1.0548
+2024-07-28 10:11:46,243 Train Epoch: 6 [0% 0/6]	ID FLYP Loss: 0.9669
+2024-07-28 10:12:33,689 CompititionVal Top-1 accuracy: 0.7193
+2024-07-28 10:12:45,386 CompititionTest Top-1 accuracy: 0.7083
+2024-07-28 10:12:45,387 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_6.pt
+2024-07-28 10:12:47,302 Avg OOD Acc : 0.7138
+2024-07-28 10:12:47,303 Avg ID FLYP Loss : 1.0082
+2024-07-28 10:12:49,466 Train Epoch: 7 [0% 0/6]	ID FLYP Loss: 0.9986
+2024-07-28 10:13:37,068 CompititionVal Top-1 accuracy: 0.7240
+2024-07-28 10:13:48,811 CompititionTest Top-1 accuracy: 0.7125
+2024-07-28 10:13:48,812 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_7.pt
+2024-07-28 10:13:50,740 Avg OOD Acc : 0.7183
+2024-07-28 10:13:50,740 Avg ID FLYP Loss : 1.0221
+2024-07-28 10:13:52,914 Train Epoch: 8 [0% 0/6]	ID FLYP Loss: 0.9975
+2024-07-28 10:14:40,655 CompititionVal Top-1 accuracy: 0.7256
+2024-07-28 10:14:52,446 CompititionTest Top-1 accuracy: 0.7064
+2024-07-28 10:14:52,447 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_8.pt
+2024-07-28 10:14:54,369 Avg OOD Acc : 0.7160
+2024-07-28 10:14:54,369 Avg ID FLYP Loss : 0.9890
+2024-07-28 10:14:56,552 Train Epoch: 9 [0% 0/6]	ID FLYP Loss: 0.9702
+2024-07-28 10:15:45,114 CompititionVal Top-1 accuracy: 0.7268
+2024-07-28 10:15:56,830 CompititionTest Top-1 accuracy: 0.7076
+2024-07-28 10:15:56,831 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_9.pt
+2024-07-28 10:15:58,755 Avg OOD Acc : 0.7172
+2024-07-28 10:15:58,755 Avg ID FLYP Loss : 0.8772
+2024-07-28 10:16:00,923 Train Epoch: 10 [0% 0/6]	ID FLYP Loss: 0.9791
+2024-07-28 10:16:48,556 CompititionVal Top-1 accuracy: 0.7284
+2024-07-28 10:17:00,441 CompititionTest Top-1 accuracy: 0.7191
+2024-07-28 10:17:00,442 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_10.pt
+2024-07-28 10:17:02,348 Avg OOD Acc : 0.7238
+2024-07-28 10:17:02,348 Avg ID FLYP Loss : 0.9775
+2024-07-28 10:17:04,541 Train Epoch: 11 [0% 0/6]	ID FLYP Loss: 1.0218
+2024-07-28 10:17:52,216 CompititionVal Top-1 accuracy: 0.7339
+2024-07-28 10:18:03,945 CompititionTest Top-1 accuracy: 0.7226
+2024-07-28 10:18:03,947 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_11.pt
+2024-07-28 10:18:05,850 Avg OOD Acc : 0.7283
+2024-07-28 10:18:05,850 Avg ID FLYP Loss : 0.9687
+2024-07-28 10:18:08,025 Train Epoch: 12 [0% 0/6]	ID FLYP Loss: 0.9264
+2024-07-28 10:18:55,543 CompititionVal Top-1 accuracy: 0.7367
+2024-07-28 10:19:08,055 CompititionTest Top-1 accuracy: 0.7243
+2024-07-28 10:19:08,057 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_12.pt
+2024-07-28 10:19:09,986 Avg OOD Acc : 0.7305
+2024-07-28 10:19:09,986 Avg ID FLYP Loss : 0.9834
+2024-07-28 10:19:12,153 Train Epoch: 13 [0% 0/6]	ID FLYP Loss: 0.9368
+2024-07-28 10:19:59,804 CompititionVal Top-1 accuracy: 0.7397
+2024-07-28 10:20:11,507 CompititionTest Top-1 accuracy: 0.7344
+2024-07-28 10:20:11,508 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_13.pt
+2024-07-28 10:20:13,438 Avg OOD Acc : 0.7370
+2024-07-28 10:20:13,439 Avg ID FLYP Loss : 0.9598
+2024-07-28 10:20:15,593 Train Epoch: 14 [0% 0/6]	ID FLYP Loss: 0.9687
+2024-07-28 10:21:03,226 CompititionVal Top-1 accuracy: 0.7390
+2024-07-28 10:21:14,963 CompititionTest Top-1 accuracy: 0.7302
+2024-07-28 10:21:14,964 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_14.pt
+2024-07-28 10:21:16,881 Avg OOD Acc : 0.7346
+2024-07-28 10:21:16,881 Avg ID FLYP Loss : 0.9879
+2024-07-28 10:21:19,040 Train Epoch: 15 [0% 0/6]	ID FLYP Loss: 0.9772
+2024-07-28 10:22:06,737 CompititionVal Top-1 accuracy: 0.7388
+2024-07-28 10:22:18,434 CompititionTest Top-1 accuracy: 0.7300
+2024-07-28 10:22:18,435 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_15.pt
+2024-07-28 10:22:20,355 Avg OOD Acc : 0.7344
+2024-07-28 10:22:20,355 Avg ID FLYP Loss : 0.9840
+2024-07-28 10:22:22,503 Train Epoch: 16 [0% 0/6]	ID FLYP Loss: 0.9533
+2024-07-28 10:23:10,130 CompititionVal Top-1 accuracy: 0.7412
+2024-07-28 10:23:21,893 CompititionTest Top-1 accuracy: 0.7323
+2024-07-28 10:23:21,894 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_16.pt
+2024-07-28 10:23:23,816 Avg OOD Acc : 0.7368
+2024-07-28 10:23:23,816 Avg ID FLYP Loss : 0.9727
+2024-07-28 10:23:25,976 Train Epoch: 17 [0% 0/6]	ID FLYP Loss: 0.9397
+2024-07-28 10:24:13,864 CompititionVal Top-1 accuracy: 0.7426
+2024-07-28 10:24:25,546 CompititionTest Top-1 accuracy: 0.7328
+2024-07-28 10:24:25,547 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_17.pt
+2024-07-28 10:24:27,468 Avg OOD Acc : 0.7377
+2024-07-28 10:24:27,469 Avg ID FLYP Loss : 0.9452
+2024-07-28 10:24:29,630 Train Epoch: 18 [0% 0/6]	ID FLYP Loss: 0.9884
+2024-07-28 10:25:17,315 CompititionVal Top-1 accuracy: 0.7419
+2024-07-28 10:25:29,014 CompititionTest Top-1 accuracy: 0.7358
+2024-07-28 10:25:29,015 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_18.pt
+2024-07-28 10:25:30,943 Avg OOD Acc : 0.7389
+2024-07-28 10:25:30,943 Avg ID FLYP Loss : 0.9802
+2024-07-28 10:25:33,104 Train Epoch: 19 [0% 0/6]	ID FLYP Loss: 0.9098
+2024-07-28 10:26:21,176 CompititionVal Top-1 accuracy: 0.7402
+2024-07-28 10:26:32,868 CompititionTest Top-1 accuracy: 0.7365
+2024-07-28 10:26:32,869 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_19.pt
+2024-07-28 10:26:34,780 Avg OOD Acc : 0.7384
+2024-07-28 10:26:34,780 Avg ID FLYP Loss : 0.8218
+2024-07-28 10:26:36,982 Train Epoch: 20 [0% 0/6]	ID FLYP Loss: 0.9828
+2024-07-28 10:27:24,657 CompititionVal Top-1 accuracy: 0.7419
+2024-07-28 10:27:36,451 CompititionTest Top-1 accuracy: 0.7368
+2024-07-28 10:27:36,452 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_20.pt
+2024-07-28 10:27:38,378 Avg OOD Acc : 0.7393
+2024-07-28 10:27:38,378 Avg ID FLYP Loss : 0.9852
+2024-07-28 10:27:40,551 Train Epoch: 21 [0% 0/6]	ID FLYP Loss: 0.9323
+2024-07-28 10:28:28,360 CompititionVal Top-1 accuracy: 0.7423
+2024-07-28 10:28:40,152 CompititionTest Top-1 accuracy: 0.7366
+2024-07-28 10:28:40,154 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_21.pt
+2024-07-28 10:28:42,062 Avg OOD Acc : 0.7394
+2024-07-28 10:28:42,063 Avg ID FLYP Loss : 0.9241
+2024-07-28 10:28:44,219 Train Epoch: 22 [0% 0/6]	ID FLYP Loss: 0.9576
+2024-07-28 10:29:31,710 CompititionVal Top-1 accuracy: 0.7423
+2024-07-28 10:29:43,500 CompititionTest Top-1 accuracy: 0.7366
+2024-07-28 10:29:43,501 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_22.pt
+2024-07-28 10:29:45,437 Avg OOD Acc : 0.7394
+2024-07-28 10:29:45,437 Avg ID FLYP Loss : 0.9476
+2024-07-28 10:29:47,614 Train Epoch: 23 [0% 0/6]	ID FLYP Loss: 0.9018
+2024-07-28 10:30:35,353 CompititionVal Top-1 accuracy: 0.7421
+2024-07-28 10:30:47,249 CompititionTest Top-1 accuracy: 0.7365
+2024-07-28 10:30:47,250 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_23.pt
+2024-07-28 10:30:49,178 Avg OOD Acc : 0.7393
+2024-07-28 10:30:49,178 Avg ID FLYP Loss : 0.9556
+2024-07-28 10:30:51,335 Train Epoch: 24 [0% 0/6]	ID FLYP Loss: 1.0127
+2024-07-28 10:31:38,966 CompititionVal Top-1 accuracy: 0.7421
+2024-07-28 10:31:50,801 CompititionTest Top-1 accuracy: 0.7365
+2024-07-28 10:31:50,802 Saving model to./checkpoints/compition/compi_loss_4shot/_BS256_WD0.2_LR1e-05_run1/checkpoint_24.pt
+2024-07-28 10:31:52,736 Avg OOD Acc : 0.7393
+2024-07-28 10:31:52,736 Avg ID FLYP Loss : 0.9637
